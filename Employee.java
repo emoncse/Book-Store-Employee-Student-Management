@@ -8,7 +8,7 @@ package uap_hr;
 
 /**
  *
- * @author Student
+ * @author Imran
  */
 public abstract class Employee {
     private String name;

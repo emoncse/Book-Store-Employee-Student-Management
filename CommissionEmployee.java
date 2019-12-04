@@ -8,7 +8,7 @@ package uap_hr;
 
 /**
  *
- * @author Student
+ * @author Imran
  */
 public class CommissionEmployee extends Employee{
     double commission;
