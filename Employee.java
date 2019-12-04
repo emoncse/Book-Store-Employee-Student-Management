@@ -4,38 +4,55 @@
  * and open the template in the editor.
  */
 
-package imran;
+package uap_hr;
 
 /**
  *
- * @author Imran Nazir Emon
+ * @author Student
  */
-public class Employee {
-    public String name;
-    public int id;
-    public String designation;
-    public double salary;
+public abstract class Employee {
+    private String name;
+    private String id;
+    private String designation;
 
-    public Employee() {
-    }
-    
-    public Employee(String name, int id, String designation, double salary) {
+    public Employee(String name, String id, String designation) {
         this.name = name;
         this.id = id;
         this.designation = designation;
-        this.salary = salary;
     }
     
-    void updateSalary(double newSal){
-        salary = newSal;
-        System.out.println("New salary updated.");
-    }
-    
-    double getSalary(){
-        return salary;
-    }
+    public abstract double getSalary();
+    public abstract void increaseSalary(double amt);
     
     void display(){
-        System.out.println("Name : " + name + " ID : " + id + " Desig : " + designation + " Salary : " + salary);
-    }    
+        System.out.println("Name : " + name);
+        System.out.println("ID : " + id);
+        System.out.println("Designation : " + designation);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+    
+    
 }
