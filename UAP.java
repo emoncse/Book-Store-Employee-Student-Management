@@ -25,8 +25,9 @@ public class UAP {
         String name;
         String id;
         String designation;
-
+        UapCse myUap = new UapCse("CSE");
         while (true) {
+            
             int option = scanner.nextInt();
             switch (option) {
                 case 1: {
@@ -40,7 +41,9 @@ public class UAP {
                             id = scanner.next();
                             designation = scanner.next();
                             double salary = scanner.nextDouble();
-                            SalariedEmployee employee = new SalariedEmployee(name, id, designation, salary);
+                           // System.out.println( name + " " + id + " " + designation + " " + salary);
+                            myUap.addNewEmployee(name, id, designation, salary);
+                            
                         }
                         break;
                         case 2: {
@@ -49,7 +52,7 @@ public class UAP {
                             designation = scanner.next();
                             double hourRate = scanner.nextDouble();
                             int hour = scanner.nextInt();
-                            HourlyEmployee employee = new HourlyEmployee(name, id, designation, hourRate, hour);
+                            myUap.addNewEmployee(name, id, designation, hourRate, hour);
                         }
                         break;
                         case 3: {
@@ -58,7 +61,7 @@ public class UAP {
                             designation = scanner.next();
                             double commission = scanner.nextDouble();
                             double sale = scanner.nextInt();
-                            CommissionEmployee employee = new CommissionEmployee(name, id, designation, commission, sale);
+                            myUap.addNewEmployee(name, id, designation, commission, sale);
                         }
                         break;
                     }
@@ -66,19 +69,16 @@ public class UAP {
                 }
                 case 2: {
                     id = scanner.next();
-                    UapCse myUap = new UapCse();
                     System.out.println("ID : " + id + "Salary : " + myUap.getSalary(id));
                 }
                 break;
                 case 3: {
                     id = scanner.next();
                     double increaseSalary = scanner.nextDouble();
-                    UapCse myUap = new UapCse();
                     myUap.increaseSalary(id, increaseSalary);
                 }
                 break;
                 case 4: {
-                    UapCse myUap = new UapCse();
                     myUap.display();
                 }
                 break;

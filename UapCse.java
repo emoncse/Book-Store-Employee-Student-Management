@@ -16,26 +16,34 @@ public class UapCse {
     
     ArrayList<Employee>employees;
     String name;
+
+    public UapCse(String name) {
+        employees = new ArrayList<Employee>();
+        this.name = name;
+    }
+    
+    
     
     private void addNewEmployee(Employee e){
         employees.add(e);
     }
     
     void addNewEmployee(String n, String I, String d, double s){
-        SalariedEmployee salariedEmployee = new SalariedEmployee(n, I, d, s);
-        addNewEmployee(salariedEmployee);
+        Employee salariedEmployee = new SalariedEmployee(n, I, d, s);
+        employees.add(salariedEmployee);
     }
     void addNewEmployee(String n, String I, String d, double hr, int hw){
-        HourlyEmployee hourlyEmployee = new HourlyEmployee(n, I, d, hr, hw);
+        Employee hourlyEmployee = new HourlyEmployee(n, I, d, hr, hw);
         employees.add(hourlyEmployee);
     }
     void addNewEmployee(String n, String I, String d, double p, double s){
-        CommissionEmployee commissionEmployee = new CommissionEmployee(n, I, d, p, s);
+        Employee commissionEmployee = new CommissionEmployee(n, I, d, p, s);
         employees.add(commissionEmployee);
     }
     Employee findEmployee(String id){
+        System.out.println("Size = " + employees.size());
         for (Employee employee : employees) {
-            if (employee.getId() == null ? id == null : employee.getId().equals(id)) {
+            if (employee.getId().equals(id)) {
                 return employee;
             } 
         }
@@ -52,7 +60,8 @@ public class UapCse {
     
     void display(String id){
         Employee employee = findEmployee(id);
-        employee.display();
+        if( employee == null) System.out.println("Not exist.");
+        else  employee.display();
     }
     void display(){
         for(Employee employee : employees){
